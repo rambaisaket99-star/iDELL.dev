@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>iDELL Story</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  background:#0a0a0a;
+  font-family:'DM Sans',sans-serif;
+}
+.story{
+  width:390px;
+  height:844px;
+  position:relative;
+  overflow:hidden;
+  border-radius:32px;
+  box-shadow:0 40px 120px rgba(0,200,200,.35), 0 0 0 1px rgba(255,255,255,.08);
+  background:
+    radial-gradient(ellipse at 90% 5%, #ccccff 0%, transparent 45%),
+    radial-gradient(ellipse at 10% 90%, #22c55e 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 40%, #00ffff 0%, transparent 40%),
+    radial-gradient(ellipse at 70% 60%, #00c3ff 0%, transparent 45%),
+    radial-gradient(ellipse at 30% 20%, #87ceeb 0%, transparent 40%),
+    linear-gradient(135deg, #22c55e 0%, #00c8c8 35%, #00c3ff 60%, #74acdf 80%, #ccccff 100%);
+}
+
+/* Noise overlay */
+.story::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.18;pointer-events:none;z-index:1;
+}
+
+/* Dark overlay for readability */
+.story::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,10,30,.18) 0%, rgba(0,20,50,.32) 50%, rgba(0,10,30,.55) 100%);
+  pointer-events:none;z-index:1;
+}
+
+.inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;padding:36px 28px 32px;}
+
+/* TOP PILL */
+.pill{
+  background:rgba(255,255,255,.22);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:100px;
+  padding:6px 20px;
+  font-size:11px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:#fff;
+  margin-bottom:24px;
+}
+
+/* LOGO AREA */
+.logo-wrap{
+  width:90px;height:90px;border-radius:22px;
+  background:rgba(255,255,255,.2);
+  backdrop-filter:blur(20px);
+  border:1.5px solid rgba(255,255,255,.45);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;
+  box-shadow:0 8px 32px rgba(0,0,0,.18), 0 0 0 6px rgba(255,255,255,.08);
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+.logo-letter{font-family:'DM Serif Display',serif;font-size:44px;color:#fff;font-style:italic;line-height:1;}
+
+/* MAIN TITLE */
+.title{
+  font-family:'DM Serif Display',serif;
+  font-size:58px;font-style:italic;
+  color:#fff;line-height:1;
+  text-align:center;
+  text-shadow:0 4px 24px rgba(0,0,0,.22);
+  margin-bottom:8px;
+}
+.tagline{
+  font-size:14px;font-weight:600;letter-spacing:.08em;
+  color:rgba(255,255,255,.85);
+  text-align:center;margin-bottom:26px;
+  text-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+/* DIVIDER */
+.div{width:200px;height:1px;background:rgba(255,255,255,.3);margin-bottom:26px;}
+
+/* GLASS CARD */
+.card{
+  width:100%;
+  background:rgba(255,255,255,.14);
+  backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:24px;
+  padding:22px 20px;
+  margin-bottom:20px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.row{display:flex;align-items:center;gap:14px;}
+.icon{
+  width:40px;height:40px;border-radius:12px;
+  background:rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.row-text{font-size:13.5px;font-weight:600;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.2);}
+
+/* CTA */
+.cta-text{
+  font-size:13px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:rgba(255,255,255,.75);
+  margin-bottom:12px;text-align:center;
+}
+
+/* LINK BOX */
+.link-box{
+  width:100%;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);
+  border-radius:100px;
+  padding:15px 24px;
+  text-align:center;
+  box-shadow:0 8px 32px rgba(0,0,0,.18), 0 0 0 3px rgba(255,255,255,.3);
+  margin-bottom:18px;
+  text-decoration:none;
+  display:block;
+  transition:transform .2s;
+}
+.link-box:hover{transform:scale(1.02);}
+.link-box span{
+  font-size:15px;font-weight:800;
+  color:#007BA7;letter-spacing:.02em;
+}
+.link-sub{font-size:10px;font-weight:600;color:#56A0D3;letter-spacing:.1em;display:block;margin-top:1px;}
+
+/* BOTTOM */
+.bottom{text-align:center;}
+.handle{font-size:12px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.1em;}
+.brand{font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.12em;margin-top:2px;}
+</style>
+</head>
+<body>
+<div class="story">
+  <div class="inner">
+
+    <div class="pill">🌐 &nbsp; Free Community</div>
+
+    <div class="logo-wrap">
+      <span class="logo-letter">iD</span>
+    </div>
+
+    <div class="title">iDELL</div>
+    <div class="tagline">Learn &nbsp;·&nbsp; Grow &nbsp;·&nbsp; Connect</div>
+
+    <div class="div"></div>
+
+    <div class="card">
+      <div class="row">
+        <div class="icon">📚</div>
+        <span class="row-text">Free Courses &amp; Real Knowledge</span>
+      </div>
+      <div class="row">
+        <div class="icon">🤝</div>
+        <span class="row-text">Genuine Community Support</span>
+      </div>
+      <div class="row">
+        <div class="icon">💡</div>
+        <span class="row-text">Practical Skills for Real Life</span>
+      </div>
+      <div class="row">
+        <div class="icon">🚀</div>
+        <span class="row-text">100% Free &nbsp;·&nbsp; Forever</span>
+      </div>
+    </div>
+
+    <div class="cta-text">Join us now 👇</div>
+
+    <a class="link-box" href="https://idelll.vercel.app/" target="_blank">
+      <span>idelll.vercel.app</span>
+      <span class="link-sub">TAP TO VISIT</span>
+    </a>
+
+    <div class="bottom">
+      <div class="handle">@DySahil</div>
+      <div class="brand">iDELL COMMUNITY</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
